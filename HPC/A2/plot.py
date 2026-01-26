@@ -56,6 +56,6 @@ plt.grid(True, which="both", linestyle="--", alpha=0.6)
 plt.legend()
 
 plt.tight_layout()
-plt.savefig("mergesort_performance2.png")
-print(f"Plot saved as 'mergesort_performance2.png'. Max threads detected: {max_threads}")
+plt.savefig("mergesort_performance.png")
+print(f"Plot saved as 'mergesort_performance.png'. Max threads detected: {max_threads}")
 plt.show()
