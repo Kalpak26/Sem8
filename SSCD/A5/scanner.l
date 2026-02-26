@@ -3,13 +3,17 @@
 %}
 
 %%
-int|float|char      { printf("%s -> this is datatype\n", yytext); }
+(int|float|char)[ ]+[a-z]+   {
+                                char dtype[20], var[20];
+                                sscanf(yytext, "%s %s", dtype, var);
 
-[a-z]+              { printf("%s -> this is variable\n", yytext); }
+                                printf("%s -> this is datatype\n", dtype);
+                                printf("%s -> this is variable\n", var);
+                            }
 
-[ \t\n]+            ;   // ignore spaces
+[ \t\n]+                    ;   // ignore whitespace
 
-.                   { printf("%s -> unknown token\n", yytext); }
+.                           { printf("Invalid input\n"); }
 %%
 
 int yywrap() {
