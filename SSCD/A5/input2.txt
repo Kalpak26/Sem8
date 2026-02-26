@@ -1,0 +1,16 @@
+#include<stdio.h>
+
+int main() {
+    int score;
+    float average;
+    int marks[5];
+
+    score = 100;
+    average = 85.5;
+
+    return 0;
+}
+
+void calculate() {
+    int x;
+}
