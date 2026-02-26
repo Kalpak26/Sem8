@@ -1,5 +1,7 @@
 %{
 #include <stdio.h>
+
+FILE *yyin;   // file pointer for flex
 %}
 
 %%
@@ -21,7 +23,28 @@ int yywrap() {
 }
 
 int main() {
-    printf("Enter input:\n");
+    yyin = fopen("input.txt", "r");   // open file
+
+    if (!yyin) {
+        printf("Could not open file\n");
+        return 1;
+    }
+
     yylex();
+    fclose(yyin);
     return 0;
 }
+
+/* alt: taking CLI input as a file
+
+*int main(int argc, char *argv[]) {
+
+*    if (argc > 1)
+*        yyin = fopen(argv[1], "r");
+*    else
+*        yyin = stdin;
+
+*    yylex();
+*    return 0;
+*}
+*/
