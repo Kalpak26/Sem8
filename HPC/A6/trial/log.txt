@@ -1,0 +1,11 @@
+1] Created Clusters -> checked with neighbour if they work
+2] Installed mpi libraries then updated (sudo update) 
+3] Ran a c program using mpi API calls
+4] Created a executable file requesting processors from clusters
+- random.txt
+kalpak slots=4
+saana slots=2
+
+5] Copied it into neighbours device (via ssh node2 -> scp a.out node2://home/computer)
+6] logout
+7] 
