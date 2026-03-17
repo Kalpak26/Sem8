@@ -8,4 +8,5 @@ saana slots=2
 
 5] Copied it into neighbours device (via ssh node2 -> scp a.out node2://home/computer)
 6] logout
-7] 
+7] run this command:
+mpirun -np 6 --hostfile random.txt ./a.out 2>/dev/null
