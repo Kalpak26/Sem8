@@ -1,0 +1,2 @@
+kalpak slots=4
+kalpak2 slots=2
