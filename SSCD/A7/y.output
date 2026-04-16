@@ -1,0 +1,145 @@
+Grammar
+
+    0 $accept: SD $end
+
+    1 SD: S
+
+    2 S: IF CMP THEN STMT
+
+    3 CMP: ID ROP ID
+
+    4 STMT: ID AOP ID
+
+
+Terminals, with rules where they appear
+
+    $end (0) 0
+    error (256)
+    IF (258) 2
+    THEN (259) 2
+    ID (260) 3 4
+    ROP (261) 3
+    AOP (262) 4
+
+
+Nonterminals, with rules where they appear
+
+    $accept (8)
+        on left: 0
+    SD (9)
+        on left: 1
+        on right: 0
+    S (10)
+        on left: 2
+        on right: 1
+    CMP (11)
+        on left: 3
+        on right: 2
+    STMT (12)
+        on left: 4
+        on right: 2
+
+
+State 0
+
+    0 $accept: • SD $end
+
+    IF  shift, and go to state 1
+
+    SD  go to state 2
+    S   go to state 3
+
+
+State 1
+
+    2 S: IF • CMP THEN STMT
+
+    ID  shift, and go to state 4
+
+    CMP  go to state 5
+
+
+State 2
+
+    0 $accept: SD • $end
+
+    $end  shift, and go to state 6
+
+
+State 3
+
+    1 SD: S •
+
+    $default  reduce using rule 1 (SD)
+
+
+State 4
+
+    3 CMP: ID • ROP ID
+
+    ROP  shift, and go to state 7
+
+
+State 5
+
+    2 S: IF CMP • THEN STMT
+
+    THEN  shift, and go to state 8
+
+
+State 6
+
+    0 $accept: SD $end •
+
+    $default  accept
+
+
+State 7
+
+    3 CMP: ID ROP • ID
+
+    ID  shift, and go to state 9
+
+
+State 8
+
+    2 S: IF CMP THEN • STMT
+
+    ID  shift, and go to state 10
+
+    STMT  go to state 11
+
+
+State 9
+
+    3 CMP: ID ROP ID •
+
+    $default  reduce using rule 3 (CMP)
+
+
+State 10
+
+    4 STMT: ID • AOP ID
+
+    AOP  shift, and go to state 12
+
+
+State 11
+
+    2 S: IF CMP THEN STMT •
+
+    $default  reduce using rule 2 (S)
+
+
+State 12
+
+    4 STMT: ID AOP • ID
+
+    ID  shift, and go to state 13
+
+
+State 13
+
+    4 STMT: ID AOP ID •
+
+    $default  reduce using rule 4 (STMT)
