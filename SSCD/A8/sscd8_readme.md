@@ -35,3 +35,13 @@ To run this calculator, you will need `flex` (or `lex`), `bison` (or `yacc`), an
 
 ### 1. Compile the files
 Run the following commands in your terminal:
+```bash
+# Step 1: Run Yacc with the -d flag to create the parser C file and the header file (calc.tab.h)
+bison -d calc.y   # (Use yacc -d calc.y if bison is not installed)
+
+# Step 2: Run Lex to create the scanner C file (lex.yy.c)
+flex calc.l       # (Use lex calc.l if flex is not installed)
+
+# Step 3: Compile both C files together into an executable named 'calc'
+gcc calc.tab.c lex.yy.c -o calc
+```
